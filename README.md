@@ -28,10 +28,10 @@ Seleção Brasileira de Futebol.
 
 ### Alexssandro
 Responsável por:
-- [ ] Criar a estrutura inicial do projeto
-- [ ] Configurar Bootstrap
-- [ ] Desenvolver o banner principal
-- [ ] Organizar o README
+- [X] Criar a estrutura inicial do projeto
+- [X] Configurar Bootstrap
+- [X] Desenvolver o banner principal
+- [X] Organizar o README
 - [ ] Revisar e integrar o trabalho do grupo
 
 ### Carlos
@@ -49,7 +49,6 @@ Responsável por:
 - [ ] Testar as interações da página
 
 ## Estrutura prevista da Landing Page
-
 - [ ] Cabeçalho (Navbar)
 - [ ] Banner principal
 - [ ] História da Seleção Brasileira
