@@ -34,14 +34,14 @@ Responsável por:
 - [ ] Organizar o README
 - [ ] Revisar e integrar o trabalho do grupo
 
-### Ian
+### Carlos
 Responsável por:
 - [ ] Desenvolver o visual da página
 - [ ] Aplicar as cores da Seleção Brasileira
 - [ ] Ajustar a responsividade
 - [ ] Melhorar os cards e seções da página
 
-### Carlos
+### Ian
 Responsável por:
 - [ ] Implementar funcionalidades em JavaScript
 - [ ] Criar um quiz sobre a Seleção Brasileira
