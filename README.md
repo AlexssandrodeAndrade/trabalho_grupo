@@ -32,6 +32,8 @@ Responsável por:
 - [X] Configurar Bootstrap
 - [X] Desenvolver o banner principal
 - [X] Organizar o README
+- [X] Criar linha do tempo das Copas do Mundo
+- [ ] Desenvolver seção de jogadores históricos
 - [ ] Revisar e integrar o trabalho do grupo
 
 ### Carlos
