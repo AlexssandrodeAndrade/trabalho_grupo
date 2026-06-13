@@ -103,3 +103,17 @@ Um aluno do grupo criou o repositório no GitHub e os demais integrantes irão c
 
 ```bash
 git clone https://github.com/AlexssandrodeAndrade/trabalho_grupo.git
+
+*EXTRA: Tive que criar um arquivo JavaScript para rodar um servidor Node.js, 
+para que o usuário não tenha acesso as respostas
+
+* Separa as alterações feitas para não conflitar com as alterações do servidor
+git stash
+
+* Aplica as alterações locais após o pull com o servidor
+git stash pop
+
+* Procedimento padrão:
+git stash
+git pull
+git stash pop
