@@ -45,8 +45,9 @@ Responsável por:
 
 ### Ian
 Responsável por:
-- [ ] Implementar funcionalidades em JavaScript
+- [X] Implementação do servidor Node.js para processar as respostas do quiz
 - [ ] Criar um quiz sobre a Seleção Brasileira
+- [ ] Implementar funcionalidades em JavaScript
 - [ ] Exibir mensagens de acerto e erro
 - [ ] Testar as interações da página
 
@@ -117,3 +118,4 @@ git stash pop
 git stash
 git pull
 git stash pop
+
