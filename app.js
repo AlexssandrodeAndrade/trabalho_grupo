@@ -1,15 +1,14 @@
 const express = require("express");
 const app = express();
 
+
+const perguntas = require("./perguntas");
+
 app.use(express.json());
 
-const perguntas = [
-{
-    pergunta: "Quantas Copas do Mundo o Brasil possui?",
-    alternativas: ["4", "5", "6", "7"],
-    correta: 1
-}
-];
+app.get("/verificar-pergunta", (req, res) => {
+    res.json(perguntas);
+});
 
 app.post("/verificar-resposta", (req, res) => {
 
@@ -34,6 +33,7 @@ app.post("/verificar-resposta", (req, res) => {
     });
 });
 
+app.use(express.static('public'))
 app.listen(3000, () => {
     console.log("Servidor rodando na porta 3000");
 });
