@@ -33,7 +33,6 @@ Responsável por:
 - [X] Desenvolver o banner principal
 - [X] Organizar o README
 - [X] Criar linha do tempo das Copas do Mundo
-- [ ] Desenvolver seção de jogadores históricos
 - [ ] Revisar e integrar o trabalho do grupo
 
 ### Carlos
@@ -51,14 +50,21 @@ Responsável por:
 - [ ] Exibir mensagens de acerto e erro
 - [ ] Testar as interações da página
 
+### Alexandro Koch
+Responsável por:
+- [ ] Desenvolver seção de jogadores históricos
+- [ ] Criar cards dos jogadores
+- [ ] Adicionar imagens dos jogadores
+- [ ] Inserir uma pequena descrição de cada jogador
+
 ## Estrutura prevista da Landing Page
-- [ ] Cabeçalho (Navbar)
-- [ ] Banner principal
-- [ ] História da Seleção Brasileira
-- [ ] Títulos conquistados
+- [X] Cabeçalho (Navbar)
+- [X] Banner principal
+- [X] História da Seleção Brasileira
+- [X] Títulos conquistados
 - [ ] Jogadores históricos
 - [ ] Quiz interativo
-- [ ] Rodapé
+- [X] Rodapé
 
 ## Fluxo de Trabalho com Git
 
