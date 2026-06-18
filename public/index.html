@@ -120,10 +120,48 @@
 
         <section id="quiz" class="py-5 bg-light">
             <div class="container">
-                <h2 class="text-center fw-bold mb-4">Quiz da Seleção</h2>
-            </div>
-            <div class="text-center">
-                <button onclick="botaoQuiz()" class="btn btn-warning btn-lg fw-bold">Começar Quiz</button>
+
+                <h2 class="text-center fw-bold mb-4">
+                    Quiz da Seleção Brasileira
+                </h2>
+
+                <div class="card shadow mx-auto" style="max-width: 700px;">
+                    <div class="card-body">
+
+                        <div class="d-flex justify-content-between mb-3">
+                            <span id="quizProgresso">
+                                Pergunta 1 de 5
+                            </span>
+
+                            <span id="quizAcertos">
+                                Acertos: 0
+                            </span>
+                        </div>
+
+                        <h4 id="quizPergunta" class="mb-4">
+                            Carregando pergunta...
+                        </h4>
+
+                        <form id="formQuiz">
+
+                            <div id="quizAlternativas">
+
+                            </div>
+
+                            <div class="text-center mt-4">
+                                <button id="btnResponder" type="submit" class="btn btn-success d-none">
+                                    Responder
+                                </button>
+                            </div>
+
+                        </form>
+
+                        <div id="quizMensagem" class="text-center fw-bold mt-4">
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
         </section>
     </main>

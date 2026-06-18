@@ -1,80 +1,134 @@
-let indiceAtual = 0;
-
-const tituloPergunta =
-    document.getElementById("tituloPergunta");
-
-const alternativasDiv =
-    document.getElementById("alternativas");
-
-const mensagem =
-    document.getElementById("mensagem");
-
-const btnProximo =
-    document.getElementById("btnProximo"); 
-
-
+let perguntas = []
+let indicePergunta = 0
+let acertos = 0
 
 async function carregarPerguntas() {
+  const resposta = await fetch('http://localhost:3000/verificar-pergunta')
 
-    const resposta = await fetch(
-        "http://localhost:3000/verificar-pergunta"
-    );
+  perguntas = await resposta.json()
 
-    const perguntas = await resposta.json();
-
-    return perguntas;
+  mostrarPergunta()
 }
 
-function resetarAlternativas() {
+function mostrarPergunta() {
+  const perguntaAtual = perguntas[indicePergunta]
 
-    const botoes =
-        document.querySelectorAll(
-            "#alternativas button"
-        );
+  document.getElementById('btnResponder').classList.remove('d-none')
 
-    botoes.forEach(botao => {
+  document.getElementById('quizProgresso').textContent =
+    `Pergunta ${indicePergunta + 1} de ${perguntas.length}`
 
-        botao.classList.remove(
-            "btn-success",
-            "btn-danger"
-        );
+  document.getElementById('quizAcertos').textContent = `Acertos: ${acertos}`
 
-        botao.classList.add(
-            "btn-outline-primary"
-        );
-    });
+  document.getElementById('quizPergunta').textContent = perguntaAtual.pergunta
+
+  document.getElementById('quizMensagem').textContent = ''
+
+  const alternativas = document.getElementById('quizAlternativas')
+
+  alternativas.innerHTML = ''
+
+  perguntaAtual.alternativas.forEach((alternativa, index) => {
+    alternativas.innerHTML += `
+                <div class="form-check mb-2">
+
+                    <input
+                        class="form-check-input"
+                        type="radio"
+                        name="resposta"
+                        id="alt${index}"
+                        value="${index}">
+
+                    <label
+                        class="form-check-label"
+                        for="alt${index}">
+                        ${alternativa}
+                    </label>
+
+                </div>
+            `
+  })
 }
 
-btnProximo.addEventListener(
-    "click",
-    () => {
+document.getElementById('formQuiz').addEventListener('submit', responder)
 
-    indiceAtual++;
+async function responder(event) {
+  event.preventDefault()
+  const mensagem = document.getElementById('quizMensagem')
 
-    if (indiceAtual < perguntas.length) {
+  const respostaSelecionada = document.querySelector(
+    'input[name="resposta"]:checked',
+  )
 
-        carregarPergunta();
+  if (!respostaSelecionada) {
+    mensagem.textContent = 'Selecione uma alternativa.'
+    mensagem.className = 'text-center fw-bold mt-4 text-warning'
+    return
+  }
 
-    } else {
+  const perguntaAtual = perguntas[indicePergunta]
 
-        document.querySelector(".card-body")
-        .innerHTML = `
-            <h2 class="text-center text-success">
-                🎉 Parabéns!
-            </h2>
+  const resposta = await fetch('http://localhost:3000/verificar-resposta', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      id: perguntaAtual.id,
+      resposta: Number(respostaSelecionada.value),
+    }),
+  })
 
-            <p class="text-center">
-                Você concluiu o quiz da
-                Seleção Brasileira.
-            </p>
-        `;
-    }
-});
-function botaoQuiz() {
-    let lista_perguntas = carregarPerguntas();
-    console.log(lista_perguntas)
+  const resultado = await resposta.json()
 
-    for(let i=0; i < lista_perguntas.length; i++) {
-        
-    }
+  if (resultado.correta) {
+    acertos++
+
+    mensagem.textContent = '✅ Resposta correta!'
+    mensagem.className = 'text-center fw-bold mt-4 text-success'
+
+    setTimeout(() => {
+      indicePergunta++
+
+      if (indicePergunta >= perguntas.length) {
+        finalizarQuiz()
+      } else {
+        mostrarPergunta()
+      }
+    }, 1000)
+  } else {
+    mensagem.textContent = '❌ Resposta errada! Voltando para o início.'
+    mensagem.className = 'text-center fw-bold mt-4 text-danger'
+
+    setTimeout(() => {
+      indicePergunta = 0
+      acertos = 0
+      mostrarPergunta()
+    }, 1500)
+  }
 }
+
+function finalizarQuiz() {
+  document.getElementById('btnResponder').classList.add('d-none')
+  document.getElementById('quizPergunta').innerHTML =
+    '🏆 Parabéns! Você completou o quiz da Seleção Brasileira!'
+
+  document.getElementById('quizAlternativas').innerHTML = ''
+
+  document.getElementById('quizMensagem').innerHTML = `
+            <button
+                class="btn btn-warning"
+                onclick="reiniciarQuiz()">
+                Jogar Novamente
+            </button>
+        `
+}
+
+function reiniciarQuiz() {
+  indicePergunta = 0
+  acertos = 0
+
+  mostrarPergunta()
+}
+
+carregarPerguntas()

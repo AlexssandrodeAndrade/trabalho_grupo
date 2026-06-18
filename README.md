@@ -45,10 +45,10 @@ Responsável por:
 ### Ian
 Responsável por:
 - [X] Implementação do servidor Node.js para processar as respostas do quiz
-- [ ] Criar um quiz sobre a Seleção Brasileira
-- [ ] Implementar funcionalidades em JavaScript
-- [ ] Exibir mensagens de acerto e erro
-- [ ] Testar as interações da página
+- [X] Criar um quiz sobre a Seleção Brasileira
+- [X] Implementar funcionalidades em JavaScript
+- [X] Exibir mensagens de acerto e erro
+- [X] Testar as interações da página
 
 ### Alexandro Koch
 Responsável por:
