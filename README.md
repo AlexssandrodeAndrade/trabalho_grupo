@@ -52,10 +52,10 @@ Responsável por:
 
 ### Alexandro Koch
 Responsável por:
-- [ ] Desenvolver seção de jogadores históricos
-- [ ] Criar cards dos jogadores
-- [ ] Adicionar imagens dos jogadores
-- [ ] Inserir uma pequena descrição de cada jogador
+- [X] Desenvolver seção de jogadores históricos
+- [X] Criar cards dos jogadores
+- [X] Adicionar imagens dos jogadores
+- [X] Inserir uma pequena descrição de cada jogador
 
 ## Estrutura prevista da Landing Page
 - [X] Cabeçalho (Navbar)
