@@ -6,15 +6,23 @@ const perguntas = require("./perguntas");
 
 app.use(express.json());
 
-app.get("/verificar-pergunta", (req, res) => {
-    res.json(perguntas);
-});
+app.get('/verificar-pergunta', (req, res) => {
+  const perguntasSemResposta = perguntas.map((pergunta, index) => {
+    return {
+      id: index,
+      pergunta: pergunta.pergunta,
+      alternativas: pergunta.alternativas,
+    }
+  })
 
-app.post("/verificar-resposta", (req, res) => {
+  res.json(perguntasSemResposta)
+})
 
-    const { perguntaId, respostaEscolhida } = req.body;
 
-    const pergunta = perguntas[perguntaId];
+app.post('/verificar-resposta', (req, res) => {
+  const { id, resposta } = req.body
+
+  const pergunta = perguntas[id]
 
   if (!pergunta) {
     return res.status(404).json({
@@ -24,13 +32,10 @@ app.post("/verificar-resposta", (req, res) => {
 
   const correta = Number(resposta) === pergunta.correta
 
-    res.json({
-        correta: acertou,
-        mensagem: acertou
-            ? "Resposta correta!"
-            : "Resposta incorreta. Tente novamente."
-    });
-});
+  res.json({
+    correta,
+  })
+})
 
 app.use(express.static('public'))
 app.listen(3000, () => {

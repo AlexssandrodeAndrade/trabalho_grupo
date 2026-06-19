@@ -1,6 +1,6 @@
-let perguntas = []
-let indicePergunta = 0
-let acertos = 0
+let perguntas = [];
+let indicePergunta = 0;
+let acertos = 0;
 
 async function carregarPerguntas() {
   const resposta = await fetch('http://localhost:3000/verificar-pergunta')
