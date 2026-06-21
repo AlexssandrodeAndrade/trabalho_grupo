@@ -30,7 +30,7 @@ Seleção Brasileira de Futebol.
 Responsável por:
 - [X] Criar a estrutura inicial do projeto
 - [X] Configurar Bootstrap
-- [ ] Desenvolver o banner principal
+- [X] Desenvolver o banner principal
 - [X] Organizar o README
 - [X] Criar linha do tempo das Copas do Mundo
 - [X] Revisar e integrar o trabalho do grupo
@@ -60,7 +60,7 @@ Responsável por:
 ## Estrutura prevista da Landing Page
 - [X] Cabeçalho (Navbar)
 - [X] Banner principal
-- [ ] História da Seleção Brasileira
+- [X] História da Seleção Brasileira
 - [X] Títulos conquistados
 - [X] Jogadores históricos
 - [X] Quiz interativo
